@@ -35,7 +35,7 @@ export class PassengerDetailComponent{
     editing : boolean = false
     constructor(){}
     onNameChange(value : string){
-        console.log("value :",value);
+        this.detail.fullname = value;
     }
     toggleEdit(){
         this.editing=!this.editing; 
