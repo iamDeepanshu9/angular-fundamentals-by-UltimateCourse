@@ -10,17 +10,21 @@ import { passenger } from "../../models/passenger-dashboard.interface";
                         backgroundColor : (detail.checkedIn ? 'green' : 'red')
                         }">
                     </span>
-                    <div>
+                    <div *ngIf ="editing">
                         <input type="text"
                             [value]="detail.fullname"
                             (input) = "onNameChange(name.value)"
                             #name>
                     </div>
+                    <div *ngIf="!editing">
                     {{detail.fullname}}
-      
+                    </div>
                     <div class="date">
                         Check in Date : {{detail.checkedInDate ? (detail.checkedInDate | date : ' MMM d,y' | uppercase) : 'not checked IN'}}
                     </div>
+                    <button (click) = "toggleEdit()">
+                        {{editing ? 'Done' : 'Edit'}}
+                    </button>
         </div>
                         `
 })
@@ -28,8 +32,12 @@ import { passenger } from "../../models/passenger-dashboard.interface";
 export class PassengerDetailComponent{
     @Input()
     detail : passenger
+    editing : boolean = false
     constructor(){}
     onNameChange(value : string){
         console.log("value :",value);
+    }
+    toggleEdit(){
+        this.editing=!this.editing; 
     }
 }
