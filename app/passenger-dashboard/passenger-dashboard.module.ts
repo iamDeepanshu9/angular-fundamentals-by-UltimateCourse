@@ -21,6 +21,9 @@ import {PassengerDashboardService} from "./passenger-dashboard.service";
     ],
     exports:[
         PassengerDashboardComponent
+    ],
+    providers:[
+      PassengerDashboardService
     ]
 })
 
