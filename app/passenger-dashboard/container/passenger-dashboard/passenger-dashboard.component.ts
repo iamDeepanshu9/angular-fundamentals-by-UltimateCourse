@@ -11,6 +11,9 @@ import { passenger } from "../../models/passenger-dashboard.interface";
             [items] = "passengers">
         </passenger-count>
         
+        <div *ngFor="let passenger of passengers">
+          {{passenger.fullname}}
+        </div>  
         <passenger-detail 
           *ngFor = "let passenger of passengers"
           [detail] = "passenger"
