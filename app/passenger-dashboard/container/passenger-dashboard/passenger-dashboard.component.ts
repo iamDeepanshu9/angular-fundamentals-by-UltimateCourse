@@ -30,11 +30,11 @@ export class PassengerDashboardComponent implements OnInit{
     passengers : passenger[];
     constructor(private passengerService : PassengerDashboardService){}
     ngOnInit(): void {
-       this.passengerService.getPassenger().subscribe((data : passenger[])=>this.passengers = data);
+       this.passengerService.getPassenger().then((data : passenger[])=>this.passengers = data);
 
     }
     handleEdit(event : passenger){
-      this.passengerService.updatetPassenger(event).subscribe((data : passenger)=>{
+      this.passengerService.updatetPassenger(event).then((data : passenger)=>{
         this.passengers = this.passengers.map((psngr : passenger)=>{
           if(psngr.id === event.id){
             psngr = Object.assign({},psngr,event);
@@ -45,7 +45,7 @@ export class PassengerDashboardComponent implements OnInit{
 
     }
     handleRemove(event : passenger){
-      this.passengerService.removePassenger(event).subscribe((data : passenger)=>{
+      this.passengerService.removePassenger(event).then((data : passenger)=>{
       this.passengers = this.passengers.filter((Psngr : passenger) => Psngr.id != event.id);
     });
 }
