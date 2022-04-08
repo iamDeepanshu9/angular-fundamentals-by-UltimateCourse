@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, Output, EventEmitter} from "@angular/core";
 import { passenger } from "../../models/passenger-dashboard.interface";
 
 @Component({
@@ -25,6 +25,10 @@ import { passenger } from "../../models/passenger-dashboard.interface";
                     <button (click) = "toggleEdit()">
                         {{editing ? 'Done' : 'Edit'}}
                     </button>
+                    <button (click) = "OnRemove()">
+                    Remove
+                    </button>
+                    
         </div>
                         `
 })
@@ -32,12 +36,28 @@ import { passenger } from "../../models/passenger-dashboard.interface";
 export class PassengerDetailComponent{
     @Input()
     detail : passenger
+
+    @Output()
+    edit : EventEmitter<any> = new EventEmitter();
+
+    @Output()
+    remove : EventEmitter<any> = new EventEmitter();
+
     editing : boolean = false
+
     constructor(){}
+
     onNameChange(value : string){
-        this.detail.fullname = value;
+        this.detail.fullname = value; 
     }
+
     toggleEdit(){
-        this.editing=!this.editing; 
+        if(this.editing){
+        this.edit.emit(this.detail);
+        }
+        this.editing=!this.editing;
+    }
+    OnRemove(){
+        this.remove.emit(this.detail)
     }
 }
