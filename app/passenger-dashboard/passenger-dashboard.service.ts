@@ -1,5 +1,5 @@
 import {passenger} from "./models/passenger-dashboard.interface";
-import {Http, Response} from "@angular/http";
+import {Http, Response, Headers , RequestOptions} from "@angular/http";
 import {Injectable} from "@angular/core";
 import {Observable} from "rxjs";
 import "rxjs/add/operator/map";
@@ -16,11 +16,17 @@ export class PassengerDashboardService{
         .get(PASSENGER_API).map((response : Response)=> response.json())
   }
   updatetPassenger(passenger : passenger) : Observable<passenger>{
+    let headers = new Headers({
+      'Content-type' : 'application/json'
+    })
+    let options = new RequestOptions({
+      headers : headers
+    })
     return this.http
-      .put(`${PASSENGER_API}/${passenger.id}`,passenger)
+      .put(`${PASSENGER_API}/${passenger.id}`,passenger,options)
       .map((response : Response)=> response.json());
   }
-  deletePassenger(passenger : passenger) : Observable<passenger>{
+  removePassenger(passenger : passenger) : Observable<passenger>{
     return this.http
       .delete(`${PASSENGER_API}/${passenger.id}`,passenger)
       .map((response : Response)=> response.json());
