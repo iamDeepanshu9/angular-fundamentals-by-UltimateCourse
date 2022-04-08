@@ -1,6 +1,8 @@
 import {passenger} from "./models/passenger-dashboard.interface";
 import {Http} from "@angular/http";
+import {Injectable} from "@angular/core";
 
+@Injectable()
 export class PassengerDashboardService{
   constructor(private http : Http) {
     console.log(this.http);
