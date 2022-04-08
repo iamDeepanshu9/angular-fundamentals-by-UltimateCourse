@@ -2,7 +2,10 @@ import {passenger} from "./models/passenger-dashboard.interface";
 import {Http, Response, Headers , RequestOptions} from "@angular/http";
 import {Injectable} from "@angular/core";
 import {Observable} from "rxjs";
-import "rxjs/add/operator/toPromise";
+import "rxjs/add/operator/map";
+import "rxjs/add/operator/catch";
+import "rxjs/add/observable/throw";
+import {error} from "util";
 // import {map} from "rxjs/add/operator";
 const PASSENGER_API : string = '/api/passengers';
 
@@ -11,11 +14,12 @@ export class PassengerDashboardService{
   constructor(private http : Http) {
     console.log(this.http);
   }
-  getPassenger() : Promise<passenger[]>{
+  getPassenger() : Observable<passenger[]>{
   return this.http
-        .get(PASSENGER_API).toPromise().then((response : Response)=> response.json())
+        .get(PASSENGER_API).map((response : Response)=> response.json()
+      .catch((error:any)=>Observable.throw(error.json())));
   }
-  updatetPassenger(passenger : passenger) : Promise<passenger>{
+  updatetPassenger(passenger : passenger) : Observable<passenger>{
     let headers = new Headers({
       'Content-type' : 'application/json'
     })
@@ -24,11 +28,11 @@ export class PassengerDashboardService{
     })
     return this.http
       .put(`${PASSENGER_API}/${passenger.id}`,passenger,options)
-      .toPromise().then((response : Response)=> response.json());
+      .map((response : Response)=> response.json().catch((error:any)=>Observable.throw(error.json())));
   }
-  removePassenger(passenger : passenger) : Promise<passenger>{
+  removePassenger(passenger : passenger) : Observable<passenger>{
     return this.http
       .delete(`${PASSENGER_API}/${passenger.id}`,passenger)
-      .toPromise().then((response : Response)=> response.json());
+      .map((response : Response)=> response.json().catch((error:any)=>Observable.throw(error.json())));
   }
 }
