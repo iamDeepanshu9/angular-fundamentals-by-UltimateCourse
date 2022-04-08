@@ -45,8 +45,8 @@ export class PassengerDashboardComponent implements OnInit{
 
     }
     handleRemove(event : passenger){
-      this.passengers = this.passengers.filter(
-        (Psngr : passenger) => Psngr.id != event.id
-        );
-    }
+      this.passengerService.deletePassenger(event).subscribe((data : passenger)=>{
+      this.passengers = this.passengers.filter((Psngr : passenger) => Psngr.id != event.id);
+    });
+}
 }
