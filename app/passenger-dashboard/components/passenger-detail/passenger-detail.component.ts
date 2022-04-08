@@ -42,7 +42,7 @@ export class PassengerDetailComponent{
 
     @Output()
     remove : EventEmitter<any> = new EventEmitter();
-
+    //can be write as - remove = new EventEmitter()
     editing : boolean = false
 
     constructor(){}
