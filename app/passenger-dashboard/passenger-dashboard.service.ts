@@ -1,7 +1,10 @@
 import {passenger} from "./models/passenger-dashboard.interface";
+import {Http} from "@angular/http";
 
 export class PassengerDashboardService{
-  constructor() {}
+  constructor(private http : Http) {
+    console.log(this.http);
+  }
   getPassenger() : passenger[]{
   return [
     {
