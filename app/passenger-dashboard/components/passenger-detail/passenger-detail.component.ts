@@ -28,7 +28,7 @@ import { passenger } from "../../models/passenger-dashboard.interface";
                     <button (click) = "OnRemove()">
                     Remove
                     </button>
-                    
+
         </div>
                         `
 })
@@ -47,7 +47,7 @@ export class PassengerDetailComponent implements OnChanges{
 
     constructor(){}
 
-    ngOnChanges(changes: SimpleChanges): void {
+    ngOnChanges(changes): void {
         if(changes.detail)
         {
             this.detail=Object.assign({},changes.detail.currentValue);
@@ -55,7 +55,7 @@ export class PassengerDetailComponent implements OnChanges{
     }
 
     onNameChange(value : string){
-        this.detail.fullname = value; 
+        this.detail.fullname = value;
     }
 
     toggleEdit(){

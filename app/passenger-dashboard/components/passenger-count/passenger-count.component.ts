@@ -7,7 +7,7 @@ import { passenger } from "../../models/passenger-dashboard.interface";
     <div>
         <h1>Airline Passenger</h1>
         <div>
-        Checked In Passenger : {{totalCheckedIn()}}/{{items.length}}
+        Checked In Passenger : {{totalCheckedIn()}}/{{items?.length}}
 </div>
 `
 
