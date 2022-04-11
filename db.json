@@ -7,10 +7,10 @@
       "checkedInDate": 1232340023
     },
     {
-      "id": 2,
       "fullname": "Kailash Khair",
+      "id": 2,
       "checkedIn": false,
-      "checkedInDate": null
+      "baggage": "hand-only"
     },
     {
       "id": 4,
