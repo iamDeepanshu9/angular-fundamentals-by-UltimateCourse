@@ -6,17 +6,22 @@ import {RouterModule, Routes} from "@angular/router";
 
 import { FormsModule } from "@angular/forms";
 import { AppComponent } from "./app.component";
+
 import { PassengerDassboardModule } from "./passenger-dashboard/passenger-dashboard.module";
+
 import {HomeComponent} from "./home.component";
+import {NotFoundComponent} from "./not-found.component";
 
 const routes : Routes =[
-  {path : '' ,component : HomeComponent, pathMatch : 'full'}
+  {path : '' ,component : HomeComponent, pathMatch : 'full'},
+  {path:'**' , component : NotFoundComponent}
 ];
 
 @NgModule({
   declarations:[
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    NotFoundComponent
   ],
   imports : [
     //Angular modules
