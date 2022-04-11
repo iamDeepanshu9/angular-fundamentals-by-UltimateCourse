@@ -1,12 +1,6 @@
 {
   "passengers": [
     {
-      "id": 1,
-      "fullname": "Ramgovind",
-      "checkedIn": true,
-      "checkedInDate": 1232340023
-    },
-    {
       "fullname": "Kailash Khair",
       "id": 2,
       "checkedIn": false,
