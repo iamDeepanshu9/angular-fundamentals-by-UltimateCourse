@@ -1,19 +1,17 @@
+.nav{
+  margin: 0 0 10px;
+  padding: 0 0 20px;
+  border-bottom: 1px solid black;
+  a{
+    background: blueviolet;
+    color: white;
+    padding: 4px 10px;
+    margin: 0 2px;
+    border-radius: 2px;
+    &.active{
+      color: pink;
+      background: green;
+    }
+  }
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
-img{
-    width:80px;
 }
-input{
-    width: 150px;
-    height: 10px;
-    padding: auto;
-    margin: auto 20px;
-    font-size: 8px;
-    border-radius: 20px;
-}
-.details{
-    display: flex;
-    margin-left: 10px;
-    justify-content: center;
-}
-
