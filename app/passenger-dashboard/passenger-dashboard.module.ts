@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import {HttpModule} from "@angular/http";
+import {RouterModule, Routes} from "@angular/router";
 //container
 import { PassengerDashboardComponent } from "./container/passenger-dashboard/passenger-dashboard.component";
 
@@ -11,6 +12,11 @@ import { PassengerDetailComponent} from "./components/passenger-detail/passenger
 //services
 import {PassengerDashboardService} from "./passenger-dashboard.service";
 
+const routes : Routes = [{
+  path:"passengers",
+  component:PassengerDashboardComponent
+}]
+
 @NgModule({
     declarations:[
         PassengerDashboardComponent,
@@ -19,10 +25,8 @@ import {PassengerDashboardService} from "./passenger-dashboard.service";
     ],
     imports:[
         CommonModule,
-        HttpModule
-    ],
-    exports:[
-        PassengerDashboardComponent
+        HttpModule,
+      RouterModule.forChild(routes)
     ],
     providers:[
       PassengerDashboardService
