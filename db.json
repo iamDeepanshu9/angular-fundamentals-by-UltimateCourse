@@ -2,15 +2,35 @@
   "passengers": [
     {
       "fullname": "Kailash Khair",
-      "id": 2,
+      "id": 1,
       "checkedIn": false,
       "baggage": "hand-only"
     },
     {
-      "id": 4,
+      "id": 2,
       "fullname": "Govind",
       "checkedIn": false,
       "checkedInDate": null
+    },
+    {
+      "fullname": "Dkjkas",
+      "id": 3,
+      "checkedIn": true,
+      "baggage": "hold-only",
+      "checkInDate": 1649834481122
+    },
+    {
+      "fullname": "Rahul Jaikar",
+      "id": 4,
+      "checkedIn": true,
+      "baggage": "none",
+      "checkInDate": 1649834467805
+    },
+    {
+      "fullname": "Vasim Akram",
+      "id": 5,
+      "checkedIn": false,
+      "baggage": "hand-only"
     }
   ]
 }
