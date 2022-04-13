@@ -3,8 +3,9 @@
     {
       "fullname": "Kailash Khair",
       "id": 1,
-      "checkedIn": false,
-      "baggage": "hand-only"
+      "checkedIn": true,
+      "baggage": "hand-hold",
+      "checkInDate": 1214983690380
     },
     {
       "id": 2,

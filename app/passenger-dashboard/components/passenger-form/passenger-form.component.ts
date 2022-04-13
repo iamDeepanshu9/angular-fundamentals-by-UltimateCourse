@@ -105,6 +105,7 @@ export class PassengerFormComponent {
   handleSubmit(passenger: Passenger, isValid: boolean) {
     if (isValid) {
       this.update.emit(passenger);
+      window.alert(passenger.fullname+ " is updated ")//just for pop the alert on updating
     }
   }
 
